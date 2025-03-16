@@ -1,56 +1,201 @@
+import { ChevronUp } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen max-h-screen p-8 pb-20 gap-16 sm:p-20 ">
+      <div className="flex gap-8 items-center">
         <Image
-          className="dark:invert"
-          src="/next.svg"
+          className=""
+          src="/logo.png"
           alt="Next.js logo"
-          width={180}
-          height={38}
+          width={80}
+          height={80}
           priority
         />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+        <h1 className="text-5xl font-bold text-center">
+          ijul&apos;s GIS Laboratory
+        </h1>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Main */}
+      <main className="flex-1 container mx-auto p-4 border border-gray-200 rounded-lg shadow-md">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-full max-w-6xl mx-auto">
+          {/* Map 1 */}
+          <div className="aspect-[8/7] relative group border border-gray-200 bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="absolute inset-0 flex flex-col">
+              {/* Image */}
+              <div className="relative h-2/3 overflow-hidden">
+                <img
+                  src="/gislab-main-pics.png"
+                  alt="test pic"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-3 left-3 bg-white/30 px-3 py-1 rounded-lg">
+                  <p className="text-xs font-medium text-white">
+                    GIS Laboratory
+                  </p>
+                </div>
+              </div>
+              {/* Map Footer */}
+              <div className="h-1/3 bg-white transition-all duration-300 ease-in-out group-hover:h-full group-hover:absolute group-hover:inset-0 overflow-y-auto">
+                <div className="p-4 h-full relative">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="font-bold text-lg">Testing Maps</h3>
+                      <p className="text-sm text-gray-500">
+                        Last updated 2 days ago
+                      </p>
+                    </div>
+                    <ChevronUp className="w-7 h-7 mt-3 text-black group-hover:rotate-180 transition-transform duration-300" />
+                  </div>
+                  {/* Hover Content */}
+                  <div className="hidden group-hover:block mt-4">
+                    <p className="mb-4">
+                      This map are displaying bla bla bla bla bla blah and keep
+                      yapping about it.
+                    </p>
+                    <button className="px-3 py-1 border border-gray-400 rounded text-sm hover:bg-gradient-to-r from-blue-500 to-blue-700 hover:text-white">
+                      View Maps
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Map 2 */}
+          <div className="aspect-[8/7] relative group border border-gray-200 bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="absolute inset-0 flex flex-col">
+              {/* Image */}
+              <div className="relative h-2/3 overflow-hidden">
+                <img
+                  src="/gislab-main-pics.png"
+                  alt="test pic"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-3 left-3 bg-white/30 px-3 py-1 rounded-lg">
+                  <p className="text-xs font-medium text-white">
+                    GIS Laboratory
+                  </p>
+                </div>
+              </div>
+              {/* Map Footer */}
+              <div className="h-1/3 bg-white transition-all duration-300 ease-in-out group-hover:h-full group-hover:absolute group-hover:inset-0 overflow-y-auto">
+                <div className="p-4 h-full relative">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="font-bold text-lg">Testing Maps</h3>
+                      <p className="text-sm text-gray-500">
+                        Last updated 2 days ago
+                      </p>
+                    </div>
+                    <ChevronUp className="w-7 h-7 mt-3 text-black group-hover:rotate-180 transition-transform duration-300" />
+                  </div>
+                  {/* Hover Content */}
+                  <div className="hidden group-hover:block mt-4">
+                    <p className="mb-4">
+                      This map are displaying bla bla bla bla bla blah and keep
+                      yapping about it.
+                    </p>
+                    <button className="px-3 py-1 border border-gray-400 rounded text-sm hover:bg-gradient-to-r from-blue-500 to-blue-700 hover:text-white">
+                      View Maps
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Map 3 */}
+          <div className="aspect-[8/7] relative group border border-gray-200 bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="absolute inset-0 flex flex-col">
+              {/* Image */}
+              <div className="relative h-2/3 overflow-hidden">
+                <img
+                  src="/gislab-main-pics.png"
+                  alt="test pic"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-3 left-3 bg-white/30 px-3 py-1 rounded-lg">
+                  <p className="text-xs font-medium text-white">
+                    GIS Laboratory
+                  </p>
+                </div>
+              </div>
+              {/* Map Footer */}
+              <div className="h-1/3 bg-white transition-all duration-300 ease-in-out group-hover:h-full group-hover:absolute group-hover:inset-0 overflow-y-auto">
+                <div className="p-4 h-full relative">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="font-bold text-lg">Testing Maps</h3>
+                      <p className="text-sm text-gray-500">
+                        Last updated 2 days ago
+                      </p>
+                    </div>
+                    <ChevronUp className="w-7 h-7 mt-3 text-black group-hover:rotate-180 transition-transform duration-300" />
+                  </div>
+                  {/* Hover Content */}
+                  <div className="hidden group-hover:block mt-4">
+                    <p className="mb-4">
+                      This map are displaying bla bla bla bla bla blah and keep
+                      yapping about it.
+                    </p>
+                    <button className="px-3 py-1 border border-gray-400 rounded text-sm hover:bg-gradient-to-r from-blue-500 to-blue-700 hover:text-white">
+                      View Maps
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Map 4 */}
+          <div className="aspect-[8/7] relative group border border-gray-200 bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="absolute inset-0 flex flex-col">
+              {/* Image */}
+              <div className="relative h-2/3 overflow-hidden">
+                <img
+                  src="/gislab-main-pics.png"
+                  alt="test pic"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-3 left-3 bg-white/30 px-3 py-1 rounded-lg">
+                  <p className="text-xs font-medium text-white">
+                    GIS Laboratory
+                  </p>
+                </div>
+              </div>
+              {/* Map Footer */}
+              <div className="h-1/3 bg-white transition-all duration-300 ease-in-out group-hover:h-full group-hover:absolute group-hover:inset-0 overflow-y-auto">
+                <div className="p-4 h-full relative">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="font-bold text-lg">Testing Maps</h3>
+                      <p className="text-sm text-gray-500">
+                        Last updated 2 days ago
+                      </p>
+                    </div>
+                    <ChevronUp className="w-7 h-7 mt-3 text-black group-hover:rotate-180 transition-transform duration-300" />
+                  </div>
+                  {/* Hover Content */}
+                  <div className="hidden group-hover:block mt-4">
+                    <p className="mb-4">
+                      This map are displaying bla bla bla bla bla blah and keep
+                      yapping about it.
+                    </p>
+                    <button className="px-3 py-1 border border-gray-400 rounded text-sm hover:bg-gradient-to-r from-blue-500 to-blue-700 hover:text-white">
+                      View Maps
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
+
+      {/* Footer */}
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
