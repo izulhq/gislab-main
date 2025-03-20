@@ -1,51 +1,27 @@
 "use client";
 import { ChevronUp, ChevronDown, Hammer, Ellipsis } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Helper function for conditional class names
 const cn = (...classes: (string | boolean | undefined)[]) => {
   return classes.filter(Boolean).join(" ");
 };
 
-// Define your map data
-const maps = [
-  {
-    id: 1,
-    title: "Peta Klimatologi",
-    lastUpdated: "a month ago",
-    description:
-      "This map are displaying bla bla bla bla bla blah and keep yapping about it.",
-    image: "/images/gislab-main-pics-4.png",
-    mobileIcon: "/images/gis-bbws-icon.png",
-    bgImage: "/images/gislab-main-pics-4.png",
-    category: "Research",
-  },
-  {
-    id: 2,
-    title: "Leaflet with Google Sheets",
-    lastUpdated: "2 days ago",
-    description:
-      "This map are displaying bla bla bla bla bla blah and keep yapping about it.",
-    image: "/images/gislab-main-pics-3.png",
-    mobileIcon: "/images/gis-gsheets-icon.png",
-    bgImage: "/images/gislab-main-pics-3.png",
-    category: "GIS Laboratory",
-  },
-  {
-    id: 3,
-    title: "DPUPR Interactive Maps",
-    lastUpdated: "7 months ago",
-    description:
-      "This map are displaying bla bla bla bla bla blah and keep yapping about it.",
-    image: "/images/gislab-main-pics-5.png",
-    mobileIcon: "/images/gis-dpupr-icon.png",
-    bgImage: "/images/gislab-main-pics-5.png",
-    category: "Internship Program",
-  },
-];
+// import from /public/maplist.json
+type MapData = {
+  id: number;
+  title: string;
+  lastUpdated: string;
+  description: string;
+  image: string;
+  mobileIcon: string;
+  bgImage: string;
+  category: string;
+  link: string;
+};
 
 // Map item component
-function MapItem({ map }: { map: (typeof maps)[0] }) {
+function MapItem({ map }: { map: MapData }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isCollapsing, setIsCollapsing] = useState(false);
 
@@ -66,17 +42,12 @@ function MapItem({ map }: { map: (typeof maps)[0] }) {
 
   return (
     <>
-      {/* Mobile Layout - Only visible on small screens */}
+      {/* Mobile Layout */}
       <div
         className={cn(
           "block md:hidden relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow transition-all duration-300",
           isExpanded ? "h-auto" : "h-auto"
         )}
-        // style={{
-        //   backgroundImage: isExpanded ? `url(${map.bgImage})` : "none",
-        //   backgroundSize: "cover",
-        //   backgroundPosition: "center",
-        // }}
       >
         {/* Card content */}
         <div className="flex flex-col">
@@ -166,9 +137,13 @@ function MapItem({ map }: { map: (typeof maps)[0] }) {
               {/* Content that appears on hover - slides up */}
               <div className="mt-4 opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-in-out flex-grow">
                 <p className="mb-4 text-sm">{map.description}</p>
-                <button className="px-3 py-1 border border-gray-400 rounded-md text-sm hover:bg-gradient-to-r from-blue-500 to-blue-700 hover:text-white transition-colors">
+                <a
+                  href={map.link}
+                  target="_blank"
+                  className="px-3 py-1 border border-gray-400 rounded-sm text-sm hover:bg-gradient-to-r from-blue-500 to-blue-700 hover:text-white transition-colors"
+                >
                   View Maps ↗
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -179,15 +154,45 @@ function MapItem({ map }: { map: (typeof maps)[0] }) {
 }
 
 export default function MapList() {
+  const [maps, setMaps] = useState<MapData[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchMaps() {
+      try {
+        const response = await fetch("/maplist.json");
+        if (!response.ok) {
+          throw new Error("Failed to fetch map data");
+        }
+        const data = await response.json();
+        setMaps(data);
+      } catch (error) {
+        console.error("Error loading maps:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchMaps();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-[40vh]">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col h-full overflow-hidden gap-4">
-      <div className="grid grid-cols-1 md:grid-cols-3 md:h-[40vh] gap-8 md:gap-4 max-w-6xl mx-auto w-full">
+      <div className="grid grid-cols-1 md:grid-cols-3 md:h-[40vh] gap-4 max-w-6xl mx-auto w-full">
         {maps.map((map) => (
           <MapItem key={map.id} map={map} />
         ))}
       </div>
 
-      <div className="mt-8 md:mt-4 flex justify-center items-center">
+      <div className="mt-4 flex justify-center items-center">
         <div className="flex items-center justify-center gap-4">
           <Hammer className="w-5 h-5 text-black/50 [animation:hammer-punch_1.5s_ease-in-out_infinite]" />
           <span className="text-md font-regular text-black/60">

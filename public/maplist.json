@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Peta Klimatologi",
+    "lastUpdated": "a month ago",
+    "description": "This map are displaying bla bla bla bla bla blah and keep yapping about it.",
+    "image": "/images/gis-bbws-bg.png",
+    "mobileIcon": "/images/gis-bbws-icon.png",
+    "category": "Research",
+    "link": "/klimatologi"
+  },
+  {
+    "id": 2,
+    "title": "Leaflet with Google Sheets",
+    "lastUpdated": "2 days ago",
+    "description": "This map are displaying bla bla bla bla bla blah and keep yapping about it.",
+    "image": "/images/gis-gsheets-bg.png",
+    "mobileIcon": "/images/gis-gsheets-icon.png",
+    "category": "GIS Laboratory",
+    "link": "/gsheets"
+  },
+  {
+    "id": 3,
+    "title": "DPUPR Interactive Maps",
+    "lastUpdated": "7 months ago",
+    "description": "This map are displaying bla bla bla bla bla blah and keep yapping about it.",
+    "image": "/images/gis-dpupr-bg.png",
+    "mobileIcon": "/images/gis-dpupr-icon.png",
+    "category": "Internship Program",
+    "link": "https://izulhq.github.io/magangDPUPR"
+  }
+]

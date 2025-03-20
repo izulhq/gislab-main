@@ -15,6 +15,7 @@ export default function Footer() {
       </p>
       <div className="h-3 w-px bg-black/60"></div>
       <span className="text-sm text-gray-500">built with</span>
+      <br className="md:hidden"></br>
       <a
         className="flex items-center gap-1 opacity-60 hover:text-black hover:opacity-100"
         href="https://vercel.com/frameworks/nextjs"

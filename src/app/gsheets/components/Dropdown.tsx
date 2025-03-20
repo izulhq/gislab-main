@@ -1,4 +1,4 @@
-export default function Dropdown({ isVisible }) {
+export default function Dropdown({ isVisible }: { isVisible: boolean }) {
   if (!isVisible) return null;
 
   return (
@@ -7,16 +7,16 @@ export default function Dropdown({ isVisible }) {
       role="menu"
       aria-orientation="vertical"
       aria-labelledby="menu-button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div className="" role="none">
         <div>
           <a className="block px-6 py-2 text-xs text-center text-white bg-gradient-to-r from-blue-500/90 to-blue-700/90 hover:bg-gradient-to-l">
-            Current : Klimatologi
+            Current : Gsheets Interactive
           </a>
         </div>
         <a
-          href="#"
+          href="/klimatologi"
           className="block px-6 py-2 text-sm text-black hover:bg-white transition-colors"
           role="menuitem"
         >

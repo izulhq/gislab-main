@@ -31,7 +31,7 @@ export default function NavBar({ view, setView }) {
               className={`p-3 md:p-2 rounded-full shadow-md ${
                 view === "map"
                   ? "bg-gradient-to-r from-blue-500 to-blue-700"
-                  : "bg-gray-600"
+                  : "bg-gradient-to-r from-gray-500 to-gray-700 hover:bg-gradient-to-l"
               } hover:bg-gradient-to-br focus:outline-none`}
             >
               <MapIcon
@@ -55,7 +55,7 @@ export default function NavBar({ view, setView }) {
               className={`p-3 md:p-2 rounded-full shadow-md ${
                 view === "table"
                   ? "bg-gradient-to-r from-blue-500 to-blue-700"
-                  : "bg-gray-600"
+                  : "bg-gradient-to-r from-gray-500 to-gray-700 hover:bg-gradient-to-l"
               } hover:bg-gradient-to-br focus:outline-none`}
             >
               <TableIcon
@@ -79,7 +79,7 @@ export default function NavBar({ view, setView }) {
                 className={`p-3 md:p-2 rounded-full shadow-md ${
                   isDropdownOpen
                     ? "bg-gradient-to-r from-blue-500 to-blue-700"
-                    : "bg-gray-600"
+                    : "bg-gradient-to-r from-gray-500 to-gray-700 hover:bg-gradient-to-l"
                 } hover:bg-gradient-to-br focus:outline-none`}
               >
                 <ChevronUp
